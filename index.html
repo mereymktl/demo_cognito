@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cognito Authentication Callback</title>
+</head>
+<body>
+    <h1>Cognito Authentication Callback</h1>
+    <div id="tokens"></div>
+
+    <script>
+        // Parse the URL parameters and display tokens
+        const params = new URLSearchParams(window.location.search);
+        const idToken = params.get('id_token');
+        const accessToken = params.get('access_token');
+
+        const tokensDiv = document.getElementById('tokens');
+        if (idToken) {
+            tokensDiv.innerHTML += `<p><strong>ID Token:</strong> ${idToken}</p>`;
+        }
+        if (accessToken) {
+            tokensDiv.innerHTML += `<p><strong>Access Token:</strong> ${accessToken}</p>`;
+        }
+    </script>
+</body>
+</html>
